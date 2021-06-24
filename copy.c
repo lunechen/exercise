@@ -19,7 +19,7 @@ int main(int argc, char **argv){
     if (argc!=3) usage(1, argv);
     fd_1 = open(argv[1], O_RDONLY);
     if (fd_1<0) usage(2, argv);
-    fd_2 = open(argv[2], O_CREAT | O_WRONLY, 0600);
+    fd_2 = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0600);
     if (fd_2<0) usage(3, argv);
 
     while((readcnt = read(fd_1, Buf, 1))>0){
